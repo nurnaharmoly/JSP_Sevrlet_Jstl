@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+>
+    
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        
+        <h:form>
+            Name:<h:inputText value="#{studentBean.student.name}"></h:inputText>
+            Round:<h:selectOneMenu value="#{studentBean.student.round}">
+                <f:selectItem itemValue="" itemLabel="Select the Round"></f:selectItem>
+                <f:selectItem itemValue="Round_36" itemLabel="Round_36"></f:selectItem>
+                <f:selectItem itemValue="Round_37" itemLabel="Round_37"></f:selectItem>
+                <f:selectItem itemValue="Round_38" itemLabel="Round_38"></f:selectItem>
+            </h:selectOneMenu>
+            
+            Course Completed:<h:selectManyCheckbox value="#{studentBean.student.completCourse}">
+                <f:selectItem itemValue="ppt" itemLabel="PPT"></f:selectItem>
+                <f:selectItem itemValue="js" itemLabel="JavaScript"></f:selectItem>
+                <f:selectItem itemValue="java" itemLabel="Java"></f:selectItem>
+                <f:selectItem itemValue="jsp" itemLabel="JSP"></f:selectItem>
+            </h:selectManyCheckbox>
+            
+            <h:selectOneRadio value="#{studentBean.student.gender}">
+                <f:selectItem itemValue="male" itemLabel="Male"></f:selectItem>
+                <f:selectItem itemValue="female" itemLabel="Female"></f:selectItem>
+            </h:selectOneRadio>
+            
+            Message:
+            <h:inputTextarea value="#{studentBean.student.msg}"></h:inputTextarea>
+            <h:commandButton action="#{studentBean.save()}" value="Submit"></h:commandButton>
+            
+            <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <br></br>
+            <p:dataTable var="s" value="#{studentbean.list}">
+            <p:column headerText="Id">
+                <h:outputText value="#{s.id}" />
+            </p:column>
+
+            <p:column headerText="Name">
+                <h:outputText value="#{s.name}" />
+            </p:column>
+
+            <p:column headerText="Course Completed ">
+                <h:outputText value="#{s.completedCourse}" />
+            </p:column>
+
+            <p:column headerText="Round">
+                <h:outputText value="#{s.round}" />
+            </p:column>
+            <p:column headerText="Gender">
+                <h:outputText value="#{s.gender}" />
+            </p:column>
+            <p:column headerText="Message">
+                <h:outputText value="#{s.msg}" />
+            </p:column>
+        </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
