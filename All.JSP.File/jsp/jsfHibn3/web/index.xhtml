@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            Name:<h:inputText value="#{studentBean.student.name}"></h:inputText><br></br>
+            
+            Gender:<h:selectOneRadio value="#{studentBean.student.gender}">
+                <f:selectItem itemValue="male" itemLabel="Male"></f:selectItem>
+                <f:selectItem itemValue="female" itemLabel="Female"></f:selectItem>
+            </h:selectOneRadio><br></br>
+            
+            Completed Course:<h:selectManyCheckbox value="#{studentBean.course}">
+                <f:selectItem itemValue="ssc" itemLabel="SSC"></f:selectItem>
+                <f:selectItem itemValue="hsc" itemLabel="HSC"></f:selectItem>
+                <f:selectItem itemValue="honours" itemLabel="Honours"></f:selectItem>
+                <f:selectItem itemValue="masters" itemLabel="Masters"></f:selectItem>
+            </h:selectManyCheckbox><br></br>
+            
+            Round:<h:selectOneMenu value="#{studentBean.student.round}">
+                <f:selectItem itemValue="" itemLabel="Select the Round"></f:selectItem>
+                <f:selectItem itemValue="Round_36" itemLabel="Round_36"></f:selectItem>
+                <f:selectItem itemValue="Round_37" itemLabel="Round_37"></f:selectItem>
+                <f:selectItem itemValue="Round_38" itemLabel="Round_38"></f:selectItem>
+            </h:selectOneMenu><br></br>
+            
+            Message:<h:inputTextarea value="#{studentBean.student.msg}"></h:inputTextarea><br></br>
+
+            <h:commandButton action="#{studentBean.save()}" value="Submit"></h:commandButton><br></br>
+            
+            <h:commandButton action="#{studentBean.reset()}" value="Reset"></h:commandButton><br></br>
+        </h:form>
+    </h:body>
+</html>
+

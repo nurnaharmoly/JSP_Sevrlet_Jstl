@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            Id:<h:inputText value="#{studentBean.student.id}"></h:inputText><br></br><br></br>
+            
+            <h:commandButton action="#{studentBean.del()}" value="Delete"></h:commandButton><br></br><br></br>
+            
+            <br></br><br></br>
+        <p:dataTable var="s" value="#{studentBean.list}">
+            <p:column headerText="Id">
+                <h:outputText value="#{s.id}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Name">
+                <h:outputText value="#{s.name}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Gender">
+                <h:outputText value="#{s.gender}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Course">
+                <h:outputText value="#{s.comCourse}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Round">
+                <h:outputText value="#{s.round}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Message">
+                <h:outputText value="#{s.msg}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="password">
+                <h:outputText value="#{s.pass}"></h:outputText>
+            </p:column>
+            
+        </p:dataTable>
+          <br></br><br></br>
+          
+          <h:link outcome="index" value="Insert"></h:link>
+        
+          <br></br><br></br>
+        
+          <h:link outcome="edit" value="Update"></h:link>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            Name:<h:inputText value="#{studentBean.student.name}"></h:inputText><br></br><br></br>
+        
+        Gender:<h:selectOneRadio value="#{studentBean.student.gender}">
+            <f:selectItem itemValue="Male" itemLabel="Male"></f:selectItem>
+            <f:selectItem itemValue="Female" itemLabel="Female"></f:selectItem>
+        </h:selectOneRadio><br></br><br></br>
+        
+        Course:<h:selectManyCheckbox value="#{studentBean.course}">
+            <f:selectItem itemValue="SSC" itemLabel="SSC"></f:selectItem>
+            <f:selectItem itemValue="HSC" itemLabel="HSC"></f:selectItem>
+            <f:selectItem itemValue="Honours" itemLabel="Honours"></f:selectItem>
+            <f:selectItem itemValue="Masters" itemLabel="Masters"></f:selectItem>
+        </h:selectManyCheckbox><br></br><br></br>
+        
+        Round:<h:selectOneMenu value="#{studentBean.student.round}">
+            <f:selectItem itemValue="" itemLabel="Select the Round"></f:selectItem>
+            <f:selectItem itemValue="Round_36" itemLabel="Round_36"></f:selectItem>
+            <f:selectItem itemValue="Round_37" itemLabel="Round_37"></f:selectItem>
+            <f:selectItem itemValue="Round_38" itemLabel="Round_38"></f:selectItem>
+        </h:selectOneMenu><br></br><br></br>
+        
+        Message:<h:inputTextarea value="#{studentBean.student.msg}"></h:inputTextarea><br></br><br></br>
+        
+        Password:<h:inputSecret value="#{studentBean.student.pass}"></h:inputSecret><br></br><br></br>
+        
+        <h:commandButton action="#{studentBean.save()}" value="Submit"></h:commandButton><br></br><br></br>
+        
+        <h:commandButton action="#{studentBean.reset()}" value="Reset"></h:commandButton><br></br><br></br>
+        
+        </h:form>
+        <br></br><br></br>
+        <p:dataTable var="s" value="#{studentBean.list}">
+            
+            <p:column headerText="Id">
+                <h:outputText value="#{s.id}"/>
+            </p:column>
+            
+            <p:column headerText="Name">
+                <h:outputText value="#{s.name}"/>
+            </p:column>
+            
+            <p:column headerText="Gender">
+                <h:outputText value="#{s.gender}"/>
+            </p:column>
+            
+            <p:column headerText="Course">
+                <h:outputText value="#{s.comCourse}"/>
+            </p:column>
+            
+            <p:column headerText="Round">
+                <h:outputText value="#{s.round}"/>
+            </p:column>
+            
+            <p:column headerText="Message">
+                <h:outputText value="#{s.msg}"/>
+            </p:column>
+            
+            <p:column headerText="Password">
+                <h:outputText value="#{s.pass}"/>
+            </p:column>
+        </p:dataTable>
+        
+        <br />
+        <h:link outcome="edit" value="Update" />
+        <br />
+        <h:link outcome="delete" value="Delete" />
+        
+    </h:body>
+</html>
+
