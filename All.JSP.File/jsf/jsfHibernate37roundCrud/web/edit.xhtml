@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            ID: <h:inputText value="#{studentBean.student.id}"  required="true" id="id" requiredMessage="Enter the ID"></h:inputText>
+        <p:message for="id"/>
+        <br />
+            
+            Name: <h:inputText value="#{studentBean.student.name}"  required="true" id="name" requiredMessage="Enter the Name"></h:inputText>
+        <p:message for="name"/>
+        <br />
+        
+        Gender: <h:selectOneRadio value="#{studentBean.student.gender}" required="true" id="gender" requiredMessage="Enter the Gender">
+            <f:selectItem itemValue="Male" itemLabel="Male"></f:selectItem>
+            <f:selectItem itemValue="Female" itemLabel="Female"></f:selectItem>
+        </h:selectOneRadio>
+        <p:message for="gender"/>
+        <br />
+        
+        Course : <h:selectManyCheckbox value="#{studentBean.course}" required="true" id="course" requiredMessage="Enter the Course">
+             <f:selectItem itemValue="SSC" itemLabel="SSC"></f:selectItem>
+             <f:selectItem itemValue="HSC" itemLabel="HSC"></f:selectItem>
+             <f:selectItem itemValue="Honours" itemLabel="Honours"></f:selectItem>
+             <f:selectItem itemValue="Masters" itemLabel="Masters"></f:selectItem>
+        </h:selectManyCheckbox>
+        <p:message for="course"/>
+        <br />
+        
+        Round: <h:selectOneMenu value="#{studentBean.student.round}" required="true" id="round" requiredMessage="Enter the Round">
+             <f:selectItem itemValue="" itemLabel="Select the Round"></f:selectItem>
+             <f:selectItem itemValue="Round_36" itemLabel="Round_36"></f:selectItem>
+             <f:selectItem itemValue="Round_37" itemLabel="Round_37"></f:selectItem>
+             <f:selectItem itemValue="Round_38" itemLabel="Round_38"></f:selectItem>
+        </h:selectOneMenu>
+        <p:message for="round"/>
+        <br />
+        
+        Message: <h:inputTextarea value="#{studentBean.student.msg}" required="true" id="msg" requiredMessage="Enter the Message"></h:inputTextarea>
+        <p:message for="msg"/>
+        <br />
+        
+        Password: <h:inputSecret value="#{studentBean.student.pass}" required="true" id="pass" requiredMessage="Enter the Password"></h:inputSecret>
+        <p:message for="pass"/>
+        <br />
+        
+        <h:commandButton action="#{studentBean.save()}"  value="Submit"></h:commandButton><br />
+        <input type="reset" value="Reset"> </input><br />
+        </h:form>
+        
+        
+        <p:dataTable var="s" value="#{studentBean.list}">
+            
+            <p:column headerText="ID">
+                <h:outputText value="#{s.id}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Name">
+                <h:outputText value="#{s.name}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Gender">
+                <h:outputText value="#{s.gender}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Coures">
+                <h:outputText value="#{s.completedCoures}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Round">
+                <h:outputText value="#{s.round}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="Message">
+                <h:outputText value="#{s.msg}"></h:outputText>
+            </p:column>
+            
+            <p:column headerText="password">
+                <h:outputText value="#{s.pass}"></h:outputText>
+            </p:column>
+        </p:dataTable><br/>
+        <h:link outcome="index" value="Insert" /><br/>
+        <h:link outcome="delete" value="delete" />
+    </h:body>
+</html>
+

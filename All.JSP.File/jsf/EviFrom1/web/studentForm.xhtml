@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <f:facet name="Heder">
+                        <h:outputText value="Student Information"></h:outputText>
+                    </f:facet>
+                    
+                    <h:outputLabel>ID:</h:outputLabel>
+                    <h:inputText value="#{stu.stdu.id}"></h:inputText>
+                    
+                    <h:outputLabel>Name:</h:outputLabel>
+                    <h:inputText value="#{stu.stdu.name}"></h:inputText>
+                    
+                    <h:outputLabel>Gender:</h:outputLabel>
+                    <h:selectOneRadio layout="lineDirection" value="#{stu.stdu.gender}">
+                        <f:selectItem itemValue="Male" itemLabel="Male"></f:selectItem>
+                        <f:selectItem itemValue="Female" itemLabel="Female"></f:selectItem>
+                    </h:selectOneRadio>
+                       
+                    <h:outputLabel>Education:</h:outputLabel>
+                    <h:selectManyCheckbox value="#{stu.stdu.education}">
+                        <f:selectItem itemValue="SSC" itemLabel="SSC"></f:selectItem>
+                        <f:selectItem itemValue="HSC" itemLabel="HSC"></f:selectItem>
+                        <f:selectItem itemValue="Honours" itemLabel="Honours"></f:selectItem>
+                        <f:selectItem itemValue="Masters" itemLabel="Masters"></f:selectItem>
+                    </h:selectManyCheckbox>
+                    
+                    <h:outputLabel>Round:</h:outputLabel>
+                    <h:selectOneMenu value="#{stu.stdu.round}">
+                        <f:selectItem itemValue="Round_36" itemLabel="Round_36"></f:selectItem>
+                        <f:selectItem itemValue="Round_37" itemLabel="Round_37"></f:selectItem>
+                        <f:selectItem itemValue="Round_38" itemLabel="Round_38"></f:selectItem>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel>Email:</h:outputLabel>
+                    <h:inputText value="#{stu.stdu.email}"></h:inputText>
+                    
+                    <h:outputLabel>Password:</h:outputLabel>
+                    <h:inputSecret value="#{stu.stdu.password}"></h:inputSecret>
+                    
+                    <h:commandButton value="Submit" action="submit"></h:commandButton>
+                    <h:commandButton action="#{stu.reset()}" value="Reset"></h:commandButton>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+
